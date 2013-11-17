@@ -1,19 +1,19 @@
 /*global window */
 /*global document */
-window.onload = function(){    
+window.onload = function(){
     
     "use strict";
     
-    var secret = Math.floor(Math.random() * 100)+1; // Gives a random number 1-100
+    var secret = Math.floor( Math.random() * 100)+1; // Gives a random number 1-100
     var counter = 0;
     // I denna funktion ska du skriva koden för att hantera "spelet"
-    var guess = function(number){
+    var guess = function( number ){
         console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
         console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
         
         // Plats för förändring.
-        number = parseInt(number, null);
-        if (isNaN(number) || number === null || number === undefined)
+        number = parseInt( number, null );
+        if (isNaN( number) || number === null || number === undefined )
         {
             return [false, "Ditt nummer är inte ett heltal mellan 1-100."];
         }
@@ -21,7 +21,7 @@ window.onload = function(){
         {
             counter++;
             
-            if (number < 0 || number > 100){ 
+            if (number < 0 || number > 100 ){ 
                 return [false, "Talet är inte ett heltal mellan 0 och 100"];
             }
             else if (secret === number){ 
