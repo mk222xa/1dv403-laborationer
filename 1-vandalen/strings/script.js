@@ -15,7 +15,8 @@ window.onload = function() {
                 var letter = str[i];
                 if (letter === letter.toUpperCase()) { //checking if it is an upperCase letter (my variable for each letter) and replacing with a lowerCase, else replacing with an upperCase
                     transformedString += letter.toLowerCase();
-                } else {
+                } 
+                else {
                     transformedString += letter.toUpperCase();
                 }
             }
