@@ -5,31 +5,38 @@ window.onload = function(){
     "use strict"; 
     
     var birthday = function(date){ 
-        var userBirthday, dayInMilliseconds, birthday, today;
-        var compareVar = /\d{4}-\d{2}-\d{2}/; //used for checking the date format (YYYY-MM-DD) 
-        if(!date.match(compareVar))
+        var userBirthday, dayInMilliseconds, birthday, today, daysLeft;
+        //var compareVar = /(\d{4})-(\d{2})-(\d{2})-(\d{2})/; //used for checking the date format (YYYY-MM-DD) 
+        if(!Date.parse(date))
         {
             return [false, "Inte ett giltigt format för datumet. YYYY-MM-DD skall användas"];
         }
         else
             
             today = Date.now();
-        dayInMilliseconds = 86400000; 
-        birthday = date.split('-');         
+        dayInMilliseconds = 86400000;
+        birthday = date.split('-');       
         birthday.splice(0, 1); //removed the year from birthday since it is not relevant.
         
-        userBirthday = new Date(new Date().getFullYear(), birthday [0]-1, birthday[1]);
+        userBirthday = new Date(new Date().getFullYear(), birthday[0]-1, birthday[1]);
         if(userBirthday < new Date())
         {
             userBirthday = new Date(new Date().getFullYear()+1,birthday[0]-1,birthday[1]);
             console.log(today);
             console.log(userBirthday);
-            return Math.round(Math.abs(today - userBirthday) / dayInMilliseconds); //Using Math.abs since I want the absolute number             
-        }
-        
+            daysLeft = Math.round(Math.abs(today - userBirthday) / dayInMilliseconds); //Using Math.abs since I want the absolute number 
+            if(daysLeft === 365)
+            {
+                return 0;
+            }
+            else
+            {
+                return daysLeft;
+            }
+        }        
         else
-        {        
-            return Math.round(Math.abs(today - userBirthday) / dayInMilliseconds);  
+        {
+            return Math.round(Math.abs(today - userBirthday) / dayInMilliseconds);
         }
     
     };
@@ -65,8 +72,6 @@ window.onload = function(){
             p.innerHTML = error.message;
         }
         
-    });
-    
-    
+    });       
     
 };

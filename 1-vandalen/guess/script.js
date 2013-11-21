@@ -21,8 +21,8 @@ window.onload = function(){
         {
             counter++;
             
-            if (number < 0 || number > 100 ){ 
-                return [false, "Talet är inte ett heltal mellan 0 och 100"];
+            if (number <= 0 || number > 100 ){ 
+                return [false, "Talet är inte ett heltal mellan 1 och 100"];
             }
             else if (secret === number){ 
                 return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + counter + "gissningar för att hitta det."];
