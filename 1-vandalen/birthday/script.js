@@ -7,7 +7,7 @@ window.onload = function(){
     var birthday = function(date){ 
         var userBirthday, dayInMilliseconds, birthday, today, daysLeft;
         //var compareVar = /(\d{4})-(\d{2})-(\d{2})-(\d{2})/; //used for checking the date format (YYYY-MM-DD) 
-        if(!Date.parse(date))
+        if((! Date.parse(date.toString())) || (Date.parse(date.toString).isNaN))
         {
             return [false, "Inte ett giltigt format för datumet. YYYY-MM-DD skall användas"];
         }

@@ -6,14 +6,14 @@ var makePerson = function(persArr){
     "use strict";
     
     // Din kod här...
-    var personalInfo, names, ages;
+    var personalInfo, names, ages = null;
     personalInfo = {},
         names = persArr.map(function(person){
             return person.name;
         }),
         ages = persArr.map(function(person){
             return person.age;
-        }).sort(function(a,b){return (a>b)?1:-1});
+        }).sort(function(a,b){return (a>b)?1:-1}); //if a>b it returns 1 and if it isn´t it returns -1
     
     names.sort(function(a,b){
         return a.localeCompare(b);
