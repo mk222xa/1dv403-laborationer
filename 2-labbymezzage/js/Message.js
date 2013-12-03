@@ -4,19 +4,19 @@ function Message(message, date) {
     
     this.getText = function () {
         return message;
-    }
+    };
 
     this.setText = function (_text) {
         message = text;
-    }
+    };
 
     this.getDate = function () {
         return date;
-    }
+    };
 
     this.setDate = function (_date) {
-        date = Date();
-    }
+        date = messageDate();
+    };
 
     Message.prototype.toString = function () {
         return this.getText() + " (" + this.getDate() + ")";
@@ -27,7 +27,7 @@ function Message(message, date) {
     };
 
     Message.prototype.getDateText = function () {
-        var messTime = this.getDate();
-        return messTime.getHours() + ":" +messTime.getMinutes() + ":" +messTime.getSeconds();
-    }
+        return this.getDate().toLocaleString();
+    };
 };
+

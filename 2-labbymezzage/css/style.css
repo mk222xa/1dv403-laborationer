@@ -32,8 +32,7 @@ body {
     min-height:800px;
 }
 footer{
-    bottom:0;
-    position:sticky bottom;
+    bottom:0;   
     width:auto;
     height:50px;
     border-top:3px solid #000;
