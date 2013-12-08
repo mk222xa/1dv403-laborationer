@@ -2,62 +2,56 @@ body {
     background-color: #000;
 }
 #container {
-    display:block;
-    width:800px;
-    min-height:950px;
-    background-color:#b6b6b6;
-    margin:auto;
-    border:3px solid #000;
-    position:relative;
+    display: block;
+    width: 800px;
+    min-height: 950px;
+    background-color: #b6b6b6;
+    margin: auto;
+    border: 3px solid #000;
+    position: relative;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
 }
-
 #container h1 {
-    text-align:center;    
-    clear:both;
-    font-size:24px;
-    font-family:'Global Sans Serif';
-    border-bottom:3px solid #000;
-    
+    text-align: center;
+    clear: both;
+    font-size: 24px;
+    font-family: 'Global Sans Serif';
+    border-bottom: 3px solid #000;
 }
-
 #messageboard {
-    display:inline-block;
-    width:800px;
-    background-color:#b6b6b6;
-    min-height:800px;
+    display: inline-block;
+    width: 800px;
+    background-color: #b6b6b6;
+    min-height: 800px;
 }
-footer{
-    bottom:0;   
-    width:auto;
-    height:50px;
-    border-top:3px solid #000;
+footer {
+    bottom: 0;
+    width: auto;
+    height: 50px;
+    border-top: 3px solid #000;
 }
-form
-{
-    display:inline-block;
-    margin-top:10px; 
-    overflow:auto;
+form {
+    display: inline-block;
+    margin-top: 10px;
+    overflow: auto;
 }
-form ul 
-{    
-    list-style-type:none;
-    list-style-position:outside;
-    margin:0px;
-    padding:0px;
+form ul {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0px;
+    padding: 0px;
 }
-form li
-{    
-    position:relative;
-    float:left;
-    text-overflow:ellipsis;
+form li {
+    position: relative;
+    float: left;
+    text-overflow: ellipsis;
 }
 button {
-    background-color: #000;  
+    background-color: #000;
     border: 1px solid #000;
     border-bottom: 1px solid #000;
     border-radius: 3px;
@@ -69,5 +63,25 @@ button {
     font-weight: bold;
     padding: 6px 20px;
     text-align: center;
+    float: right;
+}
+.messageFromUser {
+    width: 600px;
+    padding: 8px;
+    background-color: #fff;
+    margin: 5px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+.icons {
+    float:right;
+}
+.deletebutton{
+    float:right;
+}
+.datetime{
     float:right;
 }
