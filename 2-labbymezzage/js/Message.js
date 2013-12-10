@@ -34,10 +34,10 @@ Message.prototype.getDateText = function () {
 Message.prototype.getTimeStamp = function() {
     var str = "";
     
-    var currentTime = this.getDate()
-    var hours = currentTime.getHours()
-    var minutes = currentTime.getMinutes()
-    var seconds = currentTime.getSeconds()
+    var currentTime = this.getDate();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
     
     if (minutes < 10) {
         minutes = "0" + minutes

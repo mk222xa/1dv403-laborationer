@@ -1,4 +1,5 @@
 "use strict";
+"global document";
 
 var MessageBoard = {
 
@@ -43,20 +44,20 @@ var MessageBoard = {
 
     //removes the messages and prints them all from array to screen
     renderMessages: function () {
-        
+
         document.getElementById("messageboard").innerHTML = "";
-        
+
         for (var i = 0; i < MessageBoard.messages.length; ++i) {
             MessageBoard.renderMessage(i);
         }
         // Counter for messages
         var counter = document.getElementById("counter");
         var number = (MessageBoard.messages.length);
-        counter.innerHTML = "Antal meddelande : " +number;
+        counter.innerHTML = "Antal meddelande : " + number;
     },
 
     // Creates HTML tags for the new message
-    renderMessage: function (messageID) {        
+    renderMessage: function (messageID) {
         var text = document.createElement("div");
         var p = document.createElement("p");
         text.className = "messageFromUser";
@@ -73,7 +74,7 @@ var MessageBoard = {
         imgDateTime.setAttribute("src", "pics/clock.png");
         imgDateTime.alt = "ShowDateTime";
 
-        //Function for showing date and time when the message was created when clicked
+        //Function for showing the date and time when the message was created when clicked
         imgDateTime.onclick = function () {
             alert(MessageBoard.messages[messageID].getDateText());
         };
@@ -100,9 +101,10 @@ var MessageBoard = {
         p.innerHTML = MessageBoard.messages[messageID].getHTMLText();
 
         var messageTime = document.createElement("p");
-        messageTime.className = "time";        
+        messageTime.className = "time";
         messageTime.innerHTML = MessageBoard.messages[messageID].getTimeStamp();
 
+        //add icons and text for to the new message.
         text.appendChild(msgIcon);
         text.appendChild(p);
         text.appendChild(messageTime);
