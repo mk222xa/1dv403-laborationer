@@ -2,9 +2,11 @@
 "global document";
 
 var MessageBoard = {
-
+    
+    //array for messags
     messages: [],
-
+    
+    
     init: function () {
         //get the message when clicking the button and put it in the array and render on screen
         document.getElementById("post").onclick = function getMessage(e) {
@@ -16,17 +18,21 @@ var MessageBoard = {
             MessageBoard.renderMessages();
         };
 
-        //get the message and put in the array and render on screen
+        //get the message and put in the array and render on screen. Enterkey to send message and enter+shift for a new line.
         document.getElementById("messageInput").onkeypress = function (e) {
             var code;
             if (!e) {
                 e = window.event;
-            }
+            }            
+            //support for "all" browsers with .keyCode .which and .charCode
             if (e.keyCode) {
                 code = e.keyCode;
             } else if (e.which) {
                 code = e.which;
+            } else if (e.charCode) {
+                code = e.charCode;   
             }
+            
 
             if (e.shiftKey && code === 13) {
                 document.textarea.value += "\n";
@@ -42,19 +48,6 @@ var MessageBoard = {
         };
     },
 
-    //removes the messages and prints them all from array to screen
-    renderMessages: function () {
-
-        document.getElementById("messageboard").innerHTML = "";
-
-        for (var i = 0; i < MessageBoard.messages.length; ++i) {
-            MessageBoard.renderMessage(i);
-        }
-        // Counter for messages
-        var counter = document.getElementById("counter");
-        var number = (MessageBoard.messages.length);
-        counter.innerHTML = "Antal meddelande : " + number;
-    },
 
     // Creates HTML tags for the new message
     renderMessage: function (messageID) {
@@ -78,7 +71,8 @@ var MessageBoard = {
         imgDateTime.onclick = function () {
             alert(MessageBoard.messages[messageID].getDateText());
         };
-
+        
+        //Icon for removing post
         var removePost = document.createElement("a");
         var imgClose = document.createElement("img");
         imgClose.className = "deletebutton";
@@ -110,6 +104,21 @@ var MessageBoard = {
         text.appendChild(messageTime);
 
         document.getElementById("messageboard").appendChild(text);
+    },
+
+    //removes the messages and prints them all from array to screen
+    renderMessages: function () {
+
+        document.getElementById("messageboard").innerHTML = "";
+
+        for (var i = 0; i < MessageBoard.messages.length; ++i) {
+            MessageBoard.renderMessage(i);
+        }
+        // Counter for messages
+        var counter = document.getElementById("counter");
+        var number = (MessageBoard.messages.length);
+        var strCounter = "Antal meddelande : ";
+        counter.innerHTML = strCounter + number;
     },
 
     removeMessage: function (deleteMess) {
