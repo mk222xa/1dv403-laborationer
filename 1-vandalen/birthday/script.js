@@ -24,7 +24,7 @@ window.onload = function(){
             userBirthday = new Date(new Date().getFullYear()+1,birthday[0]-1,birthday[1]);
             console.log(today);
             console.log(userBirthday);
-            daysLeft = Math.round(Math.abs(today - userBirthday) / dayInMilliseconds); //Using Math.abs since I want the absolute number 
+            daysLeft = Math.ceil(Math.abs(today - userBirthday) / dayInMilliseconds); //Using Math.abs since I want the absolute number 
             if(daysLeft === 365)
             {
                 return 0;
@@ -36,7 +36,7 @@ window.onload = function(){
         }        
         else
         {
-            return Math.round(Math.abs(today - userBirthday) / dayInMilliseconds);
+            return Math.ceil(Math.abs(today - userBirthday) / dayInMilliseconds);
         }
     
     };
