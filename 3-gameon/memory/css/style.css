@@ -1,0 +1,29 @@
+/*
+background color body #44f931
+gameboard color #ed19d2
+*/
+
+body{
+    background-color:#44f931;
+}
+
+.container{
+}
+#gameboard{
+}
+table {
+    border:solid 1px;
+    margin: 20px 70px 40px 93px;
+}
+
+tr, td {    
+    padding: 20px;
+}
+
+img:hover, a:hover, a:focus {
+    -ms-transform:scale(1.5); 
+    -moz-transform:scale(1.5);
+    -webkit-transform:scale(1.5); 
+    -o-transform:scale(1.5); 
+    transform:scale(1.5);
+}

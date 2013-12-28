@@ -8,6 +8,7 @@ var MessageBoard = {
     
     
     init: function () {
+        
         //get the message when clicking the button and put it in the array and render on screen
         document.getElementById("post").onclick = function getMessage(e) {
             e.preventDefault();
@@ -30,7 +31,7 @@ var MessageBoard = {
             } else if (e.which) {
                 code = e.which;
             } else if (e.charCode) {
-                code = e.charCode;   
+                code = e.charCode;
             }
             
 
