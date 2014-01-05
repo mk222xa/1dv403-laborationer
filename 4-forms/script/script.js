@@ -15,7 +15,7 @@ window.onload = function () {
     //Variables for regexp 
     var nameRegexp = /^[a-zA-Z-åäöÅÄÖ]*[a-zA-Z-åäöÅÄÖ]+[a-zA-Z-åäöÅÄÖ]*$/;
     var zipcodeRegexp = /^(SE)*\s*\d{3}[\ \-]*\d{2}$/;
-    var emailRegexp = /^[a-zA-Z0-9]+@[a-zA-Z0-9\.]+[\.]{1}[a-zA-Z]{2,4}$/;
+    var emailRegexp = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/; //matches most emailadresses, does not allow ÅÄÖ. 
 
     //Variables for messages
 
@@ -29,7 +29,7 @@ window.onload = function () {
     zipcode.onblur = function(){validate(zipcode, zipcodeRegexp, zipError);};
     email.onblur = function(){validate(email, emailRegexp, emailError);};
     
-    //function for validating the fields
+    //Function for validating the fields
     function validate(input, regexp, message) {
         if (regexp.test(input.value)) {
             if (doc.getElementById(input.getAttribute("id") + "message") !== null) {
