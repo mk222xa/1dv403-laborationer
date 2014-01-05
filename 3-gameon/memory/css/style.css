@@ -14,6 +14,11 @@ body{
 table {
     border:solid 1px;
     margin: 20px 70px 40px 93px;
+    border-radius:5px;
+    -ms-border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -o-border-radius:5px;
 }
 
 tr, td {    
