@@ -1,0 +1,17 @@
+/*  Styling the application */
+
+html {
+    background-image: url(../pics/background1.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#menu {
+    position:fixed;
+    bottom:5px;
+    right:0px;
+    border-top: 10px solid;
+    color: #000;
+    width:100%;
+}
