@@ -5,7 +5,7 @@ var columns = 3;
 var rows = 6;
 
 var Memory = {
-
+    
     bricksArray: [],
     triesCounter: 0,
     pairsCounter: 0,
@@ -48,8 +48,6 @@ var Memory = {
         img.setAttribute("src", "pics/0.png");
         img.setAttribute("id", picture);
 
-
-
         a.appendChild(img);
         td.appendChild(a);
         
@@ -57,7 +55,6 @@ var Memory = {
         a.onclick = function () {
             Memory.brickFlip(picture);
         };
-
         return td;
     },
     
@@ -88,7 +85,7 @@ var Memory = {
                 
                 //Checks if all bricks are turned and prints an endgame message
                 if (Memory.correctGuess === (rows * columns / 2)) {
-                    var text = document.getElementById("text");
+                    //var text = document.getElementById("text");
                     //var result = "Du klarade spelet på " + (Memory.triesCounter) + " försök! Bra jobbat!";
                     //text.innerHTML = result;
                     window.alert("Du klarade spelet på " + (Memory.triesCounter) + " försök! Bra jobbat!");
@@ -97,10 +94,8 @@ var Memory = {
             } else {
                 Memory.lastGuess = picture;
             }
-
         }
-    },
-    
+    },    
     //closes the bricks that has been turned if they don´t match
     brickClose: function (firstBrick, secondBrick) {
         setTimeout(function () {
@@ -108,7 +103,6 @@ var Memory = {
             secondBrick.setAttribute("src", "pics/0.png");            
         }, 1200);
     }
-
 };
 
 window.onload = Memory.init;
