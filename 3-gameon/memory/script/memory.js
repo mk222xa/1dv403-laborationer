@@ -89,8 +89,9 @@ var Memory = {
                 //Checks if all bricks are turned and prints an endgame message
                 if (Memory.correctGuess === (rows * columns / 2)) {
                     var text = document.getElementById("text");
-                    var result = "Du klarade spelet på " + (Memory.triesCounter) + " försök! Bra jobbat!";
-                    text.innerHTML = result;
+                    //var result = "Du klarade spelet på " + (Memory.triesCounter) + " försök! Bra jobbat!";
+                    //text.innerHTML = result;
+                    window.alert("Du klarade spelet på " + (Memory.triesCounter) + " försök! Bra jobbat!");
                 }
 
             } else {

@@ -15,25 +15,33 @@
         <h1>Mattias validering av formulär!</h1>
         <form id="webform" method="post" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php">
             <fieldset>
-                <label for="name">Förnamn :</label>
-                <input type="text" name="name" id="name"/>
-
-                <label for="surname">Efternamn :</label>
-                <input type="text" name="surname" id="surname" />
-
-                <label for="zipcode">Postnummer :</label>
-                <input type="text" name="zipcode" id="zipcode">
-
-                <label for="email">Email :</label>
-                <input type="email" name="email" id="email"/>
-
-                <label for="priceModel">Prismodell :</label>
-                <select name="priceModel" id="priceModel">
-                    <option value="low">Låg</option>
-                    <option value ="medium">Mellan</option>
-                    <option value="high">Hög</option>
-                </select>                
-                <input type="submit" id="buttonSend" value="Skicka">
+                <ul>
+                    <li>
+                        <label for="name">Förnamn :</label>
+                        <input type="text" name="name" id="name" />
+                    </li>
+                    <li>
+                        <label for="surname">Efternamn :</label>
+                        <input type="text" name="surname" id="surname" />
+                    </li>
+                    <li>
+                        <label for="zipcode">Postnummer :</label>
+                        <input type="text" name="zipcode" id="zipcode">
+                    </li>
+                    <li>
+                        <label for="email">Email :</label>
+                        <input type="email" name="email" id="email" />
+                    </li>
+                    <li>
+                        <label for="priceModel">Prismodell :</label>
+                        <select name="priceModel" id="priceModel">
+                            <option value="low">Låg</option>
+                            <option value="medium">Mellan</option>
+                            <option value="high">Hög</option>
+                        </select>
+                    </li>
+                    <button type="submit" id="buttonSend">Skicka</button>
+                </ul>
             </fieldset>
         </form>
 
