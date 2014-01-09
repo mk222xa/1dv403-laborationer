@@ -62,11 +62,18 @@ window.onload = function () {
         validate(email, emailRegexp, emailError);
     };
 
-    //Creating the modal popup when clicking the button
+    //Creating the modal popup when clicking the button if all fields are validated ok
     buttonSend.addEventListener("click", function () {
+        doc.querySelector("button[type=submit]").disabled = true;
+        if (!validate(name, nameRegexp, nameError) || !validate(surname, nameRegexp, nameError) || !validate(zipcode, zipcodeRegexp, zipError) || !validate(email, emailRegexp, emailError)) {             
+           return false; 
+        }
+        else{
         createPopup();
+        }
     }, false);
 
+    //Function for correcting the zipcode
 
     //Function for validating the fields
     function validate(input, regexp, message) {
@@ -87,7 +94,7 @@ window.onload = function () {
             return false;
         }
     }
-    
+
     //function for removing elements, using a good one stackoverflow. The reason I use it is that I am planning on saving this for future use in bigger projects.
     Element.prototype.remove = function () {
         this.parentElement.removeChild(this);
@@ -113,16 +120,16 @@ window.onload = function () {
 
         //Values for the popup
         modalName.id = "modalName";
-        modalName.textContent = "Förnamn: " + name.value;        
+        modalName.textContent = "Förnamn: " + name.value;
         modalSurname.id = "modalSurname";
-        modalSurname.textContent = "Efternamn: " + surname.value;        
+        modalSurname.textContent = "Efternamn: " + surname.value;
         modalZipcode.id = "modalZipcode";
-        modalZipcode.textContent = "Postnummer: " + zipcode.value;        
+        modalZipcode.textContent = "Postnummer: " + zipcode.value;
         modalEmail.id = "modalEmail";
-        modalEmail.textContent = "Email: " + email.value;        
+        modalEmail.textContent = "Email: " + email.value;
         modalPricemodel.id = "modalPricemodel";
         modalPricemodel.textContent = "Prismodell: " + priceModel.value;
-        
+
         //Inserting the elements
         doc.body.appendChild(backgroundDiv);
         backgroundDiv.appendChild(modalDiv);
