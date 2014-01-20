@@ -43,6 +43,7 @@ window.onload = function () {
     var zipcodeRegexp = /^(SE)*\s*\d{3}[\ \-]*\d{2}$/;
     var emailRegexp = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/; //matches most emailadresses, does not allow ÅÄÖ. 
 
+
     //Variables for messages
     var nameError = "Ej korrekt ifylld";
     var zipError = "Ej korrekt format på postnummer";
@@ -56,25 +57,30 @@ window.onload = function () {
         validate(surname, nameRegexp, nameError);
     };
     zipcode.onblur = function () {
-        validate(zipcode, zipcodeRegexp, zipError);
+        zipcodeHelper();
     };
     email.onblur = function () {
         validate(email, emailRegexp, emailError);
     };
 
     //Creating the modal popup when clicking the button if all fields are validated ok
-    buttonSend.addEventListener("click", function () {
+    buttonSend.addEventListener("click", function (e) {
+        e.preventDefault();
         doc.querySelector("button[type=submit]").disabled = true;
-        if (!validate(name, nameRegexp, nameError) || !validate(surname, nameRegexp, nameError) || !validate(zipcode, zipcodeRegexp, zipError) || !validate(email, emailRegexp, emailError)) {             
-           return false; 
-        }
-        else{
-        createPopup();
+        if (!validate(name, nameRegexp, nameError) || !validate(surname, nameRegexp, nameError) || !validate(zipcode, zipcodeRegexp, zipError) || !validate(email, emailRegexp, emailError)) {
+            doc.querySelector("button[type=submit]").disabled = false;
+            return false;
+        } else {
+            return createPopup();
         }
     }, false);
 
     //Function for correcting the zipcode
-
+    function zipcodeHelper() {
+        //removing SE and any spaces
+        var zipHelper = zipcode.value.replace(/(SE)?-?\s?/g, "");
+        zipcode.value = zipHelper;
+    }
     //Function for validating the fields
     function validate(input, regexp, message) {
         if (regexp.test(input.value)) {
@@ -95,7 +101,7 @@ window.onload = function () {
         }
     }
 
-    //function for removing elements, using a good one stackoverflow. The reason I use it is that I am planning on saving this for future use in bigger projects.
+    //function for removing elements, using a good one from stackoverflow. The reason I use it is that I am planning on saving this for future use in bigger projects.
     Element.prototype.remove = function () {
         this.parentElement.removeChild(this);
     }
