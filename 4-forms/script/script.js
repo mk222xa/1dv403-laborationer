@@ -58,6 +58,7 @@ window.onload = function () {
     };
     zipcode.onblur = function () {
         zipcodeHelper();
+        validate(zipcode, zipcodeRegexp, zipError);
     };
     email.onblur = function () {
         validate(email, emailRegexp, emailError);
