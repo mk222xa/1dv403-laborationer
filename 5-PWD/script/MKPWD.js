@@ -81,13 +81,12 @@ window.onload = function () {
                 imgThumbHeight[i] = ajaxResponseData[i].thumbHeight;
             }
 
-            //Using Math to calculate the biggest image in the arrays and sets the those values to my variables for later use.
+            //Using Math to calculate the biggest image in the arrays and sets those values to my variables for later use.
             imgThumbMaxWidth = Math.max.apply(Math, imgThumbWidth);
             imgThumbMaxHeight = Math.max.apply(Math, imgThumbHeight);
 
             //removed the AjaxLoader image I used. 
-            loader.remove();
-            statusBar.innerHtml = "";
+            loader.remove();            
 
             //Loops through images and puts them in the contentDiv with a loot and innerHTML.
             for (i = 0; i < ajaxResponseData.length; i++) {
