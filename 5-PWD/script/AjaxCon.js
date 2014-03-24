@@ -1,5 +1,6 @@
 "use strict";
 
+//Using the method from E12 – Ajax
 function AjaxCon(url, callback) {
     var doc = document;
 
